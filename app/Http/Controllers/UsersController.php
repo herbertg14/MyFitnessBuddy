@@ -8,8 +8,22 @@ use App\Http\Requests;
 
 use App\User;
 
+use Auth;
+
+// use App\Http\Controllers\Auth;
+
 class UsersController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }    
+
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +32,18 @@ class UsersController extends Controller
     public function index()
     {
         // $this->middleware('auth');
-        $users = User::all();
-        var_dump($users);
-    }
+        // $users = User::all();
+        // var_dump($users);
+        $id = Auth::user()->id;
+        var_dump($id);
+
+        $user = User::find($id);
+        $meals = $user->meals;
+
+        // return view('home');
+        return view('testing', compact('user', 'id', 'meals'));
+    }   
+
 
     /**
      * Show the form for creating a new resource.
@@ -52,13 +75,13 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        $meals = $user->meals;
+        // $user = User::find($id);
+        // $meals = $user->meals;
         // var_export($user);
 
         // print_r($meals);
 
-        return view('testing', compact('user', 'id', 'meals'));
+        // return view('testing', compact('user', 'id', 'meals'));
         // return view('testing');
     }
 
