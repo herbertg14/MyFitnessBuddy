@@ -66,7 +66,9 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         // var_export($request);
-        return view('addMeal');
+        // $meal = $request->mealName;
+        // var_export($meal);
+        // return view('addMeal');
     }
 
     /**

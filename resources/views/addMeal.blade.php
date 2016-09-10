@@ -9,9 +9,9 @@
 
                 <div class="panel-body">
 
-                    <form method="post">
+                    <form action="/meals/" method="post">
                         {{ csrf_field() }}
-                        {{ method_field("POST")}}
+                        
                         <div class='form-group'>
                             <label for="exampleInputEmail1">Meal Name</label>
                             <input type="text" class="form-control" name="mealName" placeholder="Meal Name">

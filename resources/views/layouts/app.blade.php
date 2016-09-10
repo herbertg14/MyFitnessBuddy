@@ -48,7 +48,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">All Meals</a></li>
-                    <li><a href="{{ url('/add') }}">Add Meal</a></li>
+                    <li><a href="{{ url('/meals/create') }}">Add Meal</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

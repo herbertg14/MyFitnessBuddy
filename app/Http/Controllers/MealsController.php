@@ -31,6 +31,7 @@ class MealsController extends Controller
     public function create()
     {
         //
+        return view('addMeal');
     }
 
     /**
@@ -41,7 +42,18 @@ class MealsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // var_dump($request->mealName);
+        $newMeal = new Meals;
+
+        $user_id = Auth::user()->id;
+        $mealName = $request->mealName;
+
+        $newMeal->meal_name = $mealName;
+        $newMeal->user_id = $user_id;
+        $newMeal->save();
+
+        return redirect()->action('UsersController@index');
+        // var_dump($req);
     }
 
     /**

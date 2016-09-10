@@ -7,7 +7,7 @@
       <h1 class="display-3">Welcome to Meal Tracker!</h1>
 
       <hr class="m-y-2">
-        <a class="btn btn-primary btn-lg" href="{{ url('/add') }}" role="button">Add Meals</a>
+        <a class="btn btn-primary btn-lg" href="{{ url('/meals/create') }}" role="button">Add Meals</a>
       
     </div>
 </div>

@@ -30,7 +30,7 @@ Route::group(['middleware' => 'web'], function(){
 	Route::auth();
 
 	Route::get('/home', 'UsersController@index');
-	Route::get('/add', 'UsersController@store');
+	// Route::get('/meals/create', 'MealsController@store');
 
 	Route::resource("users", 'UsersController');
 	Route::resource("meals", 'MealsController');
