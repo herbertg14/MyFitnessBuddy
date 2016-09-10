@@ -52,7 +52,7 @@ class MealsController extends Controller
         $newMeal->user_id = $user_id;
         $newMeal->save();
 
-        return redirect()->action('UsersController@index');
+        return redirect()->action('MealsController@show');
         // var_dump($req);
     }
 
@@ -65,11 +65,13 @@ class MealsController extends Controller
     public function show($id)
     {
         $user_id = Auth::user()->id;
-        // $meal = Meals::find($id);
+        $meal = Meals::find($id);
         // $query = DB::select('select * from meals where id = ?', array($id));
         // $meals = $user->meals;
-        var_dump($user_id);
-        var_dump($id);
+        // var_dump($user_id);
+        // var_dump($meal->meal_name);
+        return view('meal', compact('meal'));
+        // var_dump($id);
     }
 
     /**
