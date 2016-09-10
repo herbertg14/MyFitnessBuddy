@@ -52,7 +52,12 @@ class MealsController extends Controller
         $newMeal->user_id = $user_id;
         $newMeal->save();
 
-        return redirect()->action('MealsController@show');
+        // $newId = Meals::where('user_id', $user_id)->count();
+        $newId = $newMeal->id;
+        // print_r($newId);
+
+        return redirect()->action('MealsController@show', [$newId]);
+        // return view('welcome');
         // var_dump($req);
     }
 
@@ -64,7 +69,7 @@ class MealsController extends Controller
      */
     public function show($id)
     {
-        $user_id = Auth::user()->id;
+        // $user_id = Auth::user()->id;
         $meal = Meals::find($id);
         // $query = DB::select('select * from meals where id = ?', array($id));
         // $meals = $user->meals;
@@ -72,6 +77,7 @@ class MealsController extends Controller
         // var_dump($meal->meal_name);
         return view('meal', compact('meal'));
         // var_dump($id);
+        // return view('welcome');
     }
 
     /**

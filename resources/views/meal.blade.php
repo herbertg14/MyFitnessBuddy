@@ -8,7 +8,7 @@
                 <div class="panel-heading">{{$meal->meal_name}}!</div>
 
                 <div class="panel-body">
-
+                    
                 </div>
             </div>
         </div>
