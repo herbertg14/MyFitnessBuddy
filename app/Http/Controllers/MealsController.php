@@ -31,7 +31,13 @@ class MealsController extends Controller
     public function create()
     {
         //
-        return view('addMeal');
+
+        if (Auth::check()) {
+            return view('addMeal');
+        }else{
+            return view('welcome');
+        }
+        // return view('addMeal');
     }
 
     /**
@@ -50,7 +56,7 @@ class MealsController extends Controller
 
         $newMeal->meal_name = $mealName;
         $newMeal->user_id = $user_id;
-        
+
         $newMeal->save();
 
         // $newId = Meals::where('user_id', $user_id)->count();
