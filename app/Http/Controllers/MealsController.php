@@ -6,24 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\User;
+use App\Meals;
+// use App\User;
 
 use Auth;
 
-// use App\Http\Controllers\Auth;
-
-class UsersController extends Controller
+class MealsController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }    
-
     /**
      * Display a listing of the resource.
      *
@@ -31,19 +20,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        // $this->middleware('auth');
-        // $users = User::all();
-        // var_dump($users);
-        $id = Auth::user()->id;
-        // var_dump($id);
-
-        $user = User::find($id);
-        $meals = $user->meals;
-
-        // return view('home');
-        return view('meals', compact('user', 'id', 'meals'));
-    }   
-
+        //
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -51,10 +29,8 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        // $users = User::all();
-        // var_export($users);
-
+    {
+        //
     }
 
     /**
@@ -65,8 +41,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        // var_export($request);
-        return view('addMeal');
+        //
     }
 
     /**
@@ -77,14 +52,12 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        // $user = User::find($id);
+        $user_id = Auth::user()->id;
+        // $meal = Meals::find($id);
+        // $query = DB::select('select * from meals where id = ?', array($id));
         // $meals = $user->meals;
-        // var_export($user);
-
-        // print_r($meals);
-
-        // return view('testing', compact('user', 'id', 'meals'));
-        // return view('testing');
+        var_dump($user_id);
+        var_dump($id);
     }
 
     /**
@@ -95,8 +68,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('editTesting', compact('user', 'id'));
+        //
     }
 
     /**
@@ -108,14 +80,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        var_export($id);
-        var_export($request->meal);
-        // $user = User::find($id);
-        // if ($request->name != ""){
-        //     $user->name = $request->name;
-        // }
-        // $user->save();
-        // return redirect()->action('UsersController@show', [$id]);
+        //
     }
 
     /**
