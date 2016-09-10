@@ -17,8 +17,6 @@
                             <input type="text" class="form-control" name="mealName" placeholder="Meal Name">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
-                       <!--  Name: <input type="text" name="name">
-                        <input type="submit" value="update"> -->
                     </form>
 
                 </div>

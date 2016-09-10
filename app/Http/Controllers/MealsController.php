@@ -50,6 +50,7 @@ class MealsController extends Controller
 
         $newMeal->meal_name = $mealName;
         $newMeal->user_id = $user_id;
+        
         $newMeal->save();
 
         // $newId = Meals::where('user_id', $user_id)->count();
