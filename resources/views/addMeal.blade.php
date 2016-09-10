@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
 
-                    <form action="/meals/" method="post">
+                    <form action="{{ url('/meals/') }}" method="post">
                         {{ csrf_field() }}
                         
                         <div class='form-group'>
