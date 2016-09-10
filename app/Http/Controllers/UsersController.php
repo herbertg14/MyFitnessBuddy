@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\User;
+
 class UsersController extends Controller
 {
     /**
@@ -15,7 +17,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('testing');
+        // $this->middleware('auth');
+        $users = User::all();
+        var_dump($users);
     }
 
     /**
@@ -24,8 +28,9 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        // $users = User::all();
+        // var_export($users);
     }
 
     /**
@@ -36,7 +41,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        var_export($request);
     }
 
     /**
@@ -47,7 +52,14 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $meals = $user->meals;
+        // var_export($user);
+
+        // print_r($meals);
+
+        return view('testing', compact('user', 'id', 'meals'));
+        // return view('testing');
     }
 
     /**
@@ -58,7 +70,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('editTesting', compact('user', 'id'));
     }
 
     /**
@@ -70,7 +83,14 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        var_export($id);
+        var_export($request->meal);
+        // $user = User::find($id);
+        // if ($request->name != ""){
+        //     $user->name = $request->name;
+        // }
+        // $user->save();
+        // return redirect()->action('UsersController@show', [$id]);
     }
 
     /**
